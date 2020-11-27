@@ -1,42 +1,43 @@
-# redhat-time-set-and-synchronize
+## Time and date set and synchronize on Redhat —
 
-Change the current date and time -
+### Change the current date and time —
 
-1. To change the date, use the following syntax:
+#### 1. To change the date, use the following syntax:
 
 [root@localhost ~]# timedatectl set-time [YYYY-MM-DD]
 
-2. To change the current time, use the following syntax. Enter the hour by using a 24-hour clock.
+#### 2. To change the current time, use the following syntax. Enter the hour by using a 24-hour clock.
 
 [root@localhost ~]# timedatectl set-time [HH:MM:SS]
 
-3. To configure your system to maintain the clock in the local time, use the following command:
+#### 3. To configure your system to maintain the clock in the local time, use the following command:
 
 [root@localhost ~]# timedatectl set-local-rtc yes
 
-4. To configure your system to use UTC, use the following command:
+#### 4. To configure your system to use UTC, use the following command:
 
 [root@localhost ~]# timedatectl set-local-rtc no
 
 
-Change Time Zone - 
+### Change Time Zone — 
 
-1 -  List all the available timezones
+#### 1 -  List all the available timezones
 
 [root@localhost ~]# timedatectl list-timezones
 
-2 - Locate the correct timezone you need that is in the Indian timezone and set the specific timezone.
+#### 2 - Locate the correct timezone you need that is in the Indian timezone and set the specific timezone.
 
 [root@localhost ~]# tzselect
 
 [root@localhost ~]# timedatectl set-timezone Asia/Kolkata
 
-3 - Check status
+
+### 3 - Check status
 
 [root@localhost ~]# timedatectl status
 
 
-Configuring NTP - 
+Configuring NTP —
 
 Use the set-ntp argument to enable or disable automatic synchronization of your system clock with a remote server over the Network Time Protocol (NTP).
 
@@ -45,7 +46,7 @@ Use the set-ntp argument to enable or disable automatic synchronization of your 
 [root@localhost ~]# timedatectl set-ntp no
 
 
-Set hardware time to local timezone - 
+Set hardware time to local timezone —
 
 First Find out if your hardware clock is set to local timezone :
 
