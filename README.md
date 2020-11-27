@@ -37,44 +37,47 @@
 [root@localhost ~]# timedatectl status
 
 
-Configuring NTP —
+### Configuring NTP —
 
-Use the set-ntp argument to enable or disable automatic synchronization of your system clock with a remote server over the Network Time Protocol (NTP).
+#### Use the set-ntp argument to enable or disable automatic synchronization of your system clock with a remote server over the Network Time Protocol (NTP).
 
 [root@localhost ~]# timedatectl set-ntp yes
 
 [root@localhost ~]# timedatectl set-ntp no
 
 
-Set hardware time to local timezone —
+### Set hardware time to local timezone —
 
-First Find out if your hardware clock is set to local timezone :
+#### First Find out if your hardware clock is set to local timezone :
 
 [root@localhost ~]# timedatectl | grep local
 
-Set your hardware clock to local timezone :
+#### Set your hardware clock to local timezone :
 
 [root@localhost ~]# timedatectl set-local-rtc 1
 
-Set your hardware clock to coordinated universal time (UTC) :
+#### Set your hardware clock to coordinated universal time (UTC) :
 
 [root@localhost ~]# timedatectl set-local-rtc 0
 
 
-Synchronize Time on Installed Linux Operating Systems - 
+### Synchronize Time on Installed Linux Operating Systems - 
 
-Run the ntpdate -u <ntpserver> command to update the machine clock.
+Run the `ntpdate -u <ntpserver>` command to update the machine clock.
 
-For example, ntpdate -u ntp-time.for.mydomain.
+For example, `ntpdate -u ntp-time.for.mydomain`
 
-Open the /etc/ntp.conf file and add the NTP servers used in your environment.
+Open the `/etc/ntp.conf` file and add the NTP servers used in your environment.
 
 You can add multiple NTP servers similar to these examples.
 
+```
 server ntp-time.for.mydomain
 
 server otherntp.server.org
 
 server ntp.research.gov
 
-Run the service ntpd start command to start the NTP service and implement you configuration changes.
+```
+
+Run the `service ntpd start` command to start the NTP service and implement you configuration changes.
