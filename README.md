@@ -61,7 +61,7 @@
 [root@localhost ~]# timedatectl set-local-rtc 0
 
 
-### Synchronize Time on Installed Linux Operating Systems - 
+### Synchronize Time on Installed Linux Operating Systems — 
 
 Run the `ntpdate -u <ntpserver>` command to update the machine clock.
 
@@ -81,3 +81,87 @@ server ntp.research.gov
 ```
 
 Run the `service ntpd start` command to start the NTP service and implement you configuration changes.
+
+
+## Redefined —
+
+### Installation —
+
+[root@localhost ~]# rpm -qi ntp
+
+[root@localhost ~]# yum install ntp
+
+[root@localhost ~]# systemctl status ntpd.service
+
+[root@localhost ~]# systemctl status ntpdate.service
+
+[root@localhost ~]# nano /etc/ntp.conf
+
+[root@localhost ~]# nano /etc/sysconfig/ntpd
+
+[root@localhost ~]# nano /etc/sysconfig/ntpdate
+
+
+[root@localhost ~]# timedatectl status
+
+[root@localhost ~]# ntpdate pool.ntp.org
+
+[root@localhost ~]# ntpq -p
+
+
+### Set time zone  —
+
+[root@localhost ~]# timedatectl status
+
+```
+      Local time: Mon 2021-01-04 12:04:02 IST
+  Universal time: Mon 2021-01-04 06:34:02 UTC
+        RTC time: Mon 2021-01-04 06:34:02
+       Time zone: Asia/Kolkata (IST, +0530)
+     NTP enabled: yes
+NTP synchronized: yes
+ RTC in local TZ: no
+      DST active: n/a
+
+```
+
+[root@localhost ~]# timedatectl list-timezones
+
+[root@localhost ~]# timedatectl list-timezones | grep Asia
+
+```
+Asia/Kolkata
+```
+
+[root@localhost ~]# timedatectl set-timezone Asia/Kolkata
+
+[root@localhost ~]# timedatectl status
+
+[root@localhost ~]# timedatectl set-timezone UTC
+
+[root@localhost ~]# timedatectl status
+
+
+### Sync with hardware clock (RTC in local TZ) — 
+
+[root@localhost ~]# timedatectl set-local-rtc 1
+
+[root@localhost ~]# timedatectl status
+
+
+### Enable ntp server (NTP enabled) —
+
+[root@localhost ~]# timedatectl set-ntp true
+
+[root@localhost ~]# timedatectl set-ntp false
+
+[root@localhost ~]# timedatectl status
+
+
+### Automatic synchronization (NTP synchronized) —
+
+[root@localhost ~]# timedatectl set-ntp yes
+
+[root@localhost ~]# timedatectl set-ntp no
+
+[root@localhost ~]# timedatectl status
