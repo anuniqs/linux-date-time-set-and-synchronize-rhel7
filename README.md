@@ -165,3 +165,7 @@ Asia/Kolkata
 [root@localhost ~]# timedatectl set-ntp no
 
 [root@localhost ~]# timedatectl status
+
+.
+  
+**@ By — Anup Kumar Mondal**
